@@ -18,16 +18,18 @@
 		<composite:attribute name="namePrompt" />
 		<composite:attribute name="passwordPrompt" />
 		
-		<composite:attribute name="loginButtonText" />
 		<composite:attribute name="loginAction" 
 			method-signature="java.lang.String action()" />
+
+		<composite:attribute name="loginButtonText" />
 			
 		<composite:facet name="heading" />
 		<composite:facet name="error" />
 	</composite:interface>
 	
 	<composite:implementation>
-		<h:form id="form">
+		<h:outputScript library="util" name="login.js" target="head" />
+		<h:form id="form" onsubmit="return checkForm(this, '#{cc.clientId}')">
 			<composite:renderFacet name="heading" />
 		
 			<h:panelGrid columns="2">
