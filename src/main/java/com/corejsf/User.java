@@ -45,4 +45,9 @@ public class User implements Serializable {
 		
 		return "index";
 	}
+	
+	public String login() {
+		return "welcome";
+	}
+	
 }

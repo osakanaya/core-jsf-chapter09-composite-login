@@ -10,8 +10,13 @@
 	<title>#{msgs.loginHeading}</title>
 </h:head>
 <h:body>
-	<p>
-		Login component is supposed to be put here.
-	</p>
+	<util:login namePrompt="#{msgs.namePrompt}"
+		passwordPrompt="#{msgs.passwordPrompt}"
+		name="#{user.name}"
+		password="#{user.password}"
+		loginAction="#{user.login}"
+		loginButtonText="#{msgs.loginButtonText}">
+		
+	</util:login>
 </h:body>
 </html>
