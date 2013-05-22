@@ -46,6 +46,12 @@ public class User implements Serializable {
 		return "index";
 	}
 	
+	public String register() {
+		Registrar.register(name, password);
+		
+		return "welcome";
+	}
+	
 	public String login() {
 		return "welcome";
 	}
