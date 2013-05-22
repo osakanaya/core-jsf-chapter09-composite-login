@@ -10,6 +10,8 @@
 		<composite:editableValueHolder name="passwordInput" targets="form:password" />
 		<composite:editableValueHolder name="inputs" targets="form:name form:password" />
 	
+		<composite:actionSource name="loginButton" targets="form:loginButton" />
+	
 		<composite:attribute name="name" />
 		<composite:attribute name="password" />
 		
@@ -19,10 +21,15 @@
 		<composite:attribute name="loginButtonText" />
 		<composite:attribute name="loginAction" 
 			method-signature="java.lang.String action()" />
+			
+		<composite:facet name="heading" />
+		<composite:facet name="error" />
 	</composite:interface>
 	
 	<composite:implementation>
 		<h:form id="form">
+			<composite:renderFacet name="heading" />
+		
 			<h:panelGrid columns="2">
 				#{cc.attrs.namePrompt}
 				<h:panelGroup>
@@ -43,6 +50,8 @@
 					action="#{cc.attrs.loginAction}" />
 			</p>
 		</h:form>
+		
+		<composite:renderFacet name="error" />
 		
 		<p>
 			#{cc.resourceBundleMap.footer}

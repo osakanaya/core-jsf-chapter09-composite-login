@@ -17,10 +17,20 @@
 		loginAction="#{user.login}"
 		loginButtonText="#{msgs.loginButtonText}">
 		
-		<f:validateLength maximum="10" for="inputs" />
 		<f:validateLength minimum="4" for="nameInput" />
 		<f:validator validatorId="com.corejsf.Password" for="passwordInput" />
 		
+		<f:actionListener for="loginButton" type="com.corejsf.LoginActionListener" />
+		
+		<f:facet name="heading" styleClass="header">
+			<div class="prompt">
+				#{msgs.loginPrompt}
+			</div>
+		</f:facet>
+
+		<f:facet name="error" styleClass="error">
+			<h:messages layout="table" styleClass="error" />
+		</f:facet>		
 	</util:login>
 </h:body>
 </html>
