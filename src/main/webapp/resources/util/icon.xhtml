@@ -6,15 +6,17 @@
 	xmlns:composite="http://java.sun.com/jsf/composite">
 
 	<composite:interface>
-		<composite:attribute name="image" />
+		<composite:attribute name="image" required="true" />
+		<composite:attribute name="doValidation" default="false" />
+		<composite:attribute name="styleClass" default="icon" />
 		<composite:attribute name="actionMethod"
 			method-signature="java.lang.String action()" />
 	</composite:interface>
 	
 	<composite:implementation>
 		<h:form>
-			<h:commandLink action="#{cc.attrs.actionMethod}">
-				<h:graphicImage url="#{cc.attrs.image}" styleClass="icon" />
+			<h:commandLink action="#{cc.attrs.actionMethod}" immediate="#{not cc.attrs.doValidation}">
+				<h:graphicImage url="#{cc.attrs.image}" styleClass="#{cc.attrs.styleClass}" />
 			</h:commandLink>
 		</h:form>
 	</composite:implementation>
